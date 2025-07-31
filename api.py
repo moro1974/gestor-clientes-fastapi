@@ -54,14 +54,14 @@ app = FastAPI( #  Esto crea una instancia de tu aplicación. Todas las rutas (@a
 # ejecuta paralelamente en la memoria
 # para registrar esta funcion como una ruta de la api para poder hacer desde el navegador
 # usaremos un decorador que es el sigueinte:
-#@app.get("/") # le dice a FastAPI que esta función se debe ejecutar cuando alguien accede a / con el método GET.
+@app.get("/") # le dice a FastAPI que esta función se debe ejecutar cuando alguien accede a / con el método GET.
 # le pasamos donde vamos a definir esta ruta, que va a ser la raiz
 #este get va a ser el tipo de metodo, solo una funcion de consulta que va a devolver un mensaje
 #Borramos la raiz y el html porque ya no los necesitabamos al finalizar todos las solicitudes hasta delete
-#async def index(): # define una función asíncrona (permite operaciones rápidas, sin bloquear el servidor).
+async def index(): # define una función asíncrona (permite operaciones rápidas, sin bloquear el servidor).
     
-    #content = {"mensaje":"¡Hola Mundo!"} # es el contenido que se va a devolver (un diccionario).
-    #return JSONResponse(content=content, headers = headers, media_type="application/json") # hará la conversión entre diccionario a  json
+    content = {"mensaje":"¡Hola Mundo!"} # es el contenido que se va a devolver (un diccionario).
+    return JSONResponse(content=content, headers = headers, media_type="application/json") # hará la conversión entre diccionario a  json
 #media_type define el tipo de contenido de la respuesta, también llamado Content-Type.Le dice al navegador o cliente: “Lo que te estoy enviando es un JSON.”
 # el media_type de la respuesta en una cadena llamada application/json(esto es nomenclatura)
 # y establece el tipo de la salida, del texto a un formato json
